@@ -1,3 +1,4 @@
+import { CATEGORIES } from './util/constants';
 export class App {
-  public message = 'Hello World!';
+  public categories = CATEGORIES;
 }

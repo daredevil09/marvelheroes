@@ -1,5 +1,8 @@
 <template>
-  <div class="w-4/6 my-0 mx-auto">
-    <h1>${message}</h1>
+  <div class="w-5/6 mt-24 mb-0 mx-auto">
+    <require from="./components/card/card"></require>
+    <div class="flex gap-4">
+      <card repeat.for="category of categories" category.bind="category" ></card>
+    </div>
   </div>
 </template>
