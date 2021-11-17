@@ -1,0 +1,6 @@
+<template>
+  <require from="../../components/card/card"></require>
+    <div class="flex gap-4">
+        <card repeat.for="category of categories" category.bind="category" ></card>
+      </div>
+</template>
