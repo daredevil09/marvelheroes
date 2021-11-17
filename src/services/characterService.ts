@@ -14,6 +14,6 @@ export class CharacterService {
 
     public getCharacters() {
         const pub = '58adebe21ff3a1cd284ce2ee8a1d13a6';
-        return this.http.fetch(`characters?apikey=${pub}`);
+        return this.http.fetch(`characters?apikey=${pub}&nameStartsWith=ir`,);
     }
 }
