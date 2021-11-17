@@ -1,5 +1,6 @@
 <template>
-    <div>
-        characters works
+    <require from="../../components/card-item/card-item"></require>
+    <div class="flex flex-wrap gap-4">
+        <card-item repeat.for="character of characters" item.bind="character" ></card-item>
     </div>
 </template>
