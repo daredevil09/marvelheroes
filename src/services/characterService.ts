@@ -1,6 +1,5 @@
 import { inject } from 'aurelia-dependency-injection';
 import {HttpClient} from 'aurelia-fetch-client';
-import md5 from 'crypto-js/md5';
 @inject(HttpClient)
 export class CharacterService {
     private http: HttpClient;

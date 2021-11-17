@@ -2,6 +2,7 @@
   "name": "marvelheroes",
   "description": "An Aurelia client application.",
   "version": "0.1.0",
+  "homepage": "https://daredevil09.github.io/marvelheroes",
   "repository": {
     "type": "???",
     "url": "???"
@@ -11,7 +12,7 @@
     "aurelia-animator-css": "^1.0.4",
     "aurelia-bootstrapper": "^2.3.3",
     "aurelia-fetch-client": "^1.8.2",
-    "crypto-js": "^4.1.1",
+    "gh-pages": "^3.2.3",
     "postcss-loader": "^6.2.0"
   },
   "devDependencies": {
@@ -61,7 +62,9 @@
     "start": "webpack server",
     "build:dev": "webpack",
     "analyze": "webpack --env production --analyze",
-    "test": "au test"
+    "test": "au test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "engines": {
     "node": ">=10.12.0"
