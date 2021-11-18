@@ -6,11 +6,16 @@ import { HttpService } from './../../services/http-service';
 export class CardsList {
     @bindable category;
     public data;
+    public searchQuery;
     constructor(private http: HttpService) {
     }
     
     attached() {
-        this.http.getData(this.category.url).then(d => {
+        this.getData()
+    }
+
+    public getData() {
+        this.http.getData(this.category.url, this.searchQuery).then(d => {
             d.json().then(r => this.data = r.data.results)
         }).catch(e => console.log(e))
     }

@@ -1,7 +1,14 @@
 <template>
     <require from="../../components/card-item/card-item"></require>
-    <p class="text-5xl font-bold" >${category.title}</p>
-    <div class="flex flex-wrap gap-4 mt-2">
+    <div class="flex flex-wrap gap-4 justify-between">
+        <p class="text-5xl font-bold" >${category.title}</p>
+        <div class="flex flex-wrap gap-4">
+
+            <input value.bind="searchQuery" class="border-2 border-black w-96" >
+            <button click.trigger="getData()" class="bg-red-500 px-12">Search</button>
+        </div>
+    </div>
+    <div class="flex flex-wrap gap-4 mt-2 justify-between">
         <card-item repeat.for="item of data" item.bind="item" category.bind="category" ></card-item>
     </div>
 </template>

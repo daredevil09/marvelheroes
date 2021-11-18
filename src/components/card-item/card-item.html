@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-1 md:w-48" click.trigger="navigateToItem()">
+    <div class="flex-1" click.trigger="navigateToItem()">
         <img src.bind="item.thumbnail.path + '/portrait_xlarge.' + item.thumbnail.extension" >
         <p class="break-words">${item.name || item.title}</p>
 

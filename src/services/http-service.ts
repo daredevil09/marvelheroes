@@ -11,9 +11,12 @@ export class HttpService {
         })
     }
 
-    public getData(endpoint) {
+    public getData(endpoint, searchQuery?) {
         const pub = '58adebe21ff3a1cd284ce2ee8a1d13a6';
-        const api = `${endpoint}?apikey=${pub}`;
+        let api = `${endpoint}?apikey=${pub}`;
+        if(searchQuery) {
+            api += endpoint === 'characters' ? '&nameStartsWith=' + searchQuery: '&titleStartsWith=' + searchQuery;
+        }
         return this.http.fetch(api);
     }
 }
