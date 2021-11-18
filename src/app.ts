@@ -6,7 +6,7 @@ export class App {
   configureRouter(config: RouterConfiguration, router: Router): void {
     this.router = router;
     config.title = "Marvel Heroes";
-    config.options.pushState = true;
+    config.options.hashChange = true;
     config.map([
       {
         route: "",
