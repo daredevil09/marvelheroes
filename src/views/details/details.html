@@ -1,0 +1,16 @@
+<template>
+    <div>
+        <a route-href.bind="category.url" class="underline text-lg">Go Back</a>
+        <div class="flex flex-wrap gap-4 mt-4">
+            <div class="flex-2">
+
+                <img src.bind="data.thumbnail.path + '/portrait_incredible.' + data.thumbnail.extension">
+            </div>
+
+            <div class="flex-1">
+                <p class="font-extrabold text-7xl">${data.name || data.title}</p>
+                <p class="break-words">${data.description}</p>
+            </div>
+        </div>
+    </div>
+</template>

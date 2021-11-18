@@ -2,6 +2,6 @@
     <require from="../../components/card-item/card-item"></require>
     <p class="text-5xl font-bold" >${category.title}</p>
     <div class="flex flex-wrap gap-4 mt-2">
-        <card-item repeat.for="item of data" item.bind="item" ></card-item>
+        <card-item repeat.for="item of data" item.bind="item" category.bind="category" ></card-item>
     </div>
 </template>

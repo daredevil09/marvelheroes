@@ -7,10 +7,11 @@ export class App {
     this.router = router;
     config.title = "Marvel Heroes";
     config.options.hashChange = true;
+    config.options.root = '#';
     // NOTE moduleId doesn't work with variables
     config.map([
       {
-        route: "",
+        route: "/",
         name: "home",
         moduleId: PLATFORM.moduleName("views/home/home"),
       },
@@ -18,6 +19,8 @@ export class App {
         route: "characters",
         name: "characters",
         moduleId: PLATFORM.moduleName("views/characters/characters"),
+        title: "Characters",
+        nav: true,
         settings: {
           data: {
             url: "characters",
@@ -47,17 +50,39 @@ export class App {
           },
         },
       },
-      // {
-      //   route: "stories",
-      //   name: "stories",
-      //   moduleId: PLATFORM.moduleName("views/stories/stories"),
-      //   settings: {
-      //     data: {
-      //       url: "stories",
-      //       title: "Stories",
-      //     },
-      //   },
-      // },
+      {
+        route: "characters/:id",
+        name: "details",
+        moduleId: PLATFORM.moduleName("views/details/details"),
+        settings: {
+          data: {
+            url: "characters",
+            title: "Characters",
+          },
+        },
+      },
+      {
+        route: "comics/:id",
+        name: "details",
+        moduleId: PLATFORM.moduleName("views/details/details"),
+        settings: {
+          data: {
+            url: "comics",
+            title: "Comics",
+          },
+        },
+      },
+      {
+        route: "series/:id",
+        name: "details",
+        moduleId: PLATFORM.moduleName("views/details/details"),
+        settings: {
+          data: {
+            url: "series",
+            title: "Series",
+          },
+        },
+      },
     ]);
   }
 }
