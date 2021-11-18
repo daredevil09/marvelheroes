@@ -4,6 +4,7 @@ import { HttpService } from '../../services/http-service';
 export class Details {
     public data;
     public category;
+    public loading = true;
     constructor(private http: HttpService) {
 
     }
@@ -11,6 +12,9 @@ export class Details {
         const category = routeConfig.settings.data;
         this.category = category;
         const url = `${category.url}/${params.id}`
-        this.http.getData(url).then(res => res.json()).then(d => this.data = (d.data.results[0]))
+        this.http.getData(url).then(res => res.json()).then(d => {
+            this.data = (d.data.results[0]);
+            this.loading = false;
+        })
     }
 }

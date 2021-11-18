@@ -1,7 +1,9 @@
 <template>
+    <require from="./../../components/loader/loader"></require>
     <div>
         <a route-href.bind="category.url" class="underline text-lg">Go Back</a>
-        <div class="flex flex-wrap gap-4 mt-4">
+        <loader if.bind="loading"></loader>
+        <div class="flex flex-wrap gap-4 mt-4" else>
             <div class="flex-2">
 
                 <img src.bind="data.thumbnail.path + '/portrait_incredible.' + data.thumbnail.extension">
