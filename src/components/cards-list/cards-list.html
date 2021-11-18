@@ -9,9 +9,10 @@
         </div>
     </div>
 
-    <loader if.bind="loading"></loader>
+    <loader if.bind="loading && !data.length"></loader>
 
     <div else class="flex flex-wrap gap-4 mt-2 justify-start">
         <card-item repeat.for="item of data" item.bind="item" category.bind="category" ></card-item>
     </div>
+    <loader if.bind="loading && data.length"></loader>
 </template>
