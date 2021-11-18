@@ -14,5 +14,8 @@
     <div else class="flex flex-wrap gap-4 mt-2 justify-start">
         <card-item repeat.for="item of data" item.bind="item" category.bind="category" ></card-item>
     </div>
+    <div if.bind="!loading && !data.length" class="h-screen flex justify-center items-center">
+        <p class="font-extrabold text-7xl">No Results Available</p>
+    </div>
     <loader if.bind="loading && data.length"></loader>
 </template>

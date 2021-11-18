@@ -8,9 +8,11 @@ export class CardsList {
   public data = [];
   public searchQuery;
   public loading = true;
+  private offset = 0;
   constructor(private http: HttpService) {}
 
   attached() {
+    this.searchQuery = '';
     this.getData();
     window.addEventListener("scroll", this.scrollEvent.bind(this));
   }
@@ -18,6 +20,7 @@ export class CardsList {
   public getData(offSet?) {
     if(!offSet) {
       this.data = [];
+      this.offset = 0;
     }
     this.loading = true;
     this.http
@@ -26,6 +29,7 @@ export class CardsList {
         d.json().then((r) => {
           this.data = [...this.data, ...r.data.results];
           this.loading = false;
+          this.offset = r.data.offset;
         });
       })
       .catch((e) => console.log(e));
@@ -40,8 +44,14 @@ export class CardsList {
       document.documentElement.clientHeight;
 
     const scrolled = winScroll / height;
-    if(scrolled === 1) {
+    if(scrolled === 1 && this.offset !== (this.data.length + 100)) {
+        this.offset = this.data.length + 100;
         this.getData(this.data.length)
     }
+  }
+
+  detached() {
+    this.searchQuery = '';
+    window.removeEventListener('scroll', this.scrollEvent.bind(this))
   }
 }
