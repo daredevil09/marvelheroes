@@ -6,7 +6,6 @@ export class Details {
     public category;
     public loading = true;
     constructor(private http: HttpService) {
-
     }
     activate(params, routeConfig, navigationInstruction) {
         const category = routeConfig.settings.data;
@@ -15,6 +14,7 @@ export class Details {
         this.http.getData(url).then(res => res.json()).then(d => {
             this.data = (d.data.results[0]);
             this.loading = false;
+            routeConfig.navModel.setTitle(this.data.name || this.data.title)
         })
     }
 }

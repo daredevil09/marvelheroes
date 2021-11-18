@@ -32,6 +32,7 @@ export class App {
         route: "comics",
         name: "comics",
         moduleId: PLATFORM.moduleName("views/comics/comics"),
+        title: 'Comics',
         settings: {
           data: {
             url: "comics",
@@ -43,6 +44,7 @@ export class App {
         route: "series",
         name: "series",
         moduleId: PLATFORM.moduleName("views/series/series"),
+        title: 'Series',
         settings: {
           data: {
             url: "series",
